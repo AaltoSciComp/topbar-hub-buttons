@@ -1,0 +1,23 @@
+{
+  "jupyter.lab.toolbars": {
+    "TopBar" : [
+      {
+        "name": "topbar-hub-buttons:control-panel",
+        "command": "hub:control-panel",
+        "label": "Hub Control Panel",
+        "rank": 50
+      },
+      {
+        "name": "topbar-hub-buttons:logout",
+        "command": "hub:logout",
+        "label": "Logout",
+        "rank": 51
+      }
+    ]
+  },
+  "title": "topbar-hub-buttons",
+  "description": "topbar-hub-buttons settings.",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}
