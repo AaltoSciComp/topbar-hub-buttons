@@ -8,9 +8,9 @@
         "rank": 50
       },
       {
-        "name": "topbar-hub-buttons:logout",
-        "command": "hub:logout",
-        "label": "Logout",
+        "name": "topbar-hub-buttons:stop-server",
+        "command": "hub-buttons:stop-server",
+        "label": "Stop Server",
         "rank": 51
       }
     ]
