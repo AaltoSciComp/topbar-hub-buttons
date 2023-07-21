@@ -56,7 +56,9 @@
   },
   "dependencies": {
     "@jupyterlab/application": "^4.0.0",
+    "@jupyterlab/coreutils": "^6.0.0",
     "@jupyterlab/hub-extension": "^4.0.0",
+    "@jupyterlab/services": "^7.0.0",
     "@jupyterlab/settingregistry": "^4.0.0"
   },
   "devDependencies": {
@@ -91,6 +93,16 @@
     "access": "public"
   },
   "jupyterlab": {
+    "discovery": {
+      "server": {
+        "managers": [
+          "pip"
+        ],
+        "base": {
+          "name": "topbar_hub_buttons"
+        }
+      }
+    },
     "extension": true,
     "outputDir": "topbar_hub_buttons/labextension",
     "schemaDir": "schema"

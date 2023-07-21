@@ -1,6 +1,6 @@
 {
   "jupyter.lab.toolbars": {
-    "TopBar" : [
+    "TopBar": [
       {
         "name": "topbar-hub-buttons:control-panel",
         "command": "hub:control-panel",

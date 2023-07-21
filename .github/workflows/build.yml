@@ -31,6 +31,9 @@ jobs:
         set -eux
         python -m pip install .[test]
 
+        jupyter server extension list
+        jupyter server extension list 2>&1 | grep -ie "topbar_hub_buttons.*OK"
+
         jupyter labextension list
         jupyter labextension list 2>&1 | grep -ie "topbar-hub-buttons.*OK"
         python -m jupyterlab.browser_check
@@ -74,6 +77,9 @@ jobs:
 
         pip install "jupyterlab>=4.0.0,<5" topbar_hub_buttons*.whl
 
+
+        jupyter server extension list
+        jupyter server extension list 2>&1 | grep -ie "topbar_hub_buttons.*OK"
 
         jupyter labextension list
         jupyter labextension list 2>&1 | grep -ie "topbar-hub-buttons.*OK"

@@ -3,12 +3,13 @@
 ## Note
 
 Below is the text copied directly from the extension template. I can change it later if necessary.
-For now, the only thing to know is that this extension adds "Hub Control Panel" and "Logout" buttons to the JupyterLab top bar.
-The main logic to do so is in `schema/plugin.json`, and `src/index.ts` has a little bit of code 
+For now, the only thing to know is that this extension adds "Hub Control Panel" and "Stop Server" buttons to the JupyterLab top bar.
+The main logic to do so is in `schema/plugin.json`, and `src/index.ts` has a little bit of code
 that uses the former (and logs a message to the console).
+There is also a small server extension that is used to forward the JupyterHub API token
+from the environment variables to the frontend. This is needed to issue the shutdown server API request.
 
-
-[![Github Actions Status](/workflows/Build/badge.svg)](/actions/workflows/build.yml)
+[![Github Actions Status](https://github.com/AaltoSciComp/topbar-hub-buttons/workflows/Build/badge.svg)](https://github.com/AaltoSciComp/topbar-hub-buttons/actions/workflows/build.yml)
 A JupyterLab extension that adds JupyterHub buttons on the topbar
 
 ## Requirements
@@ -31,6 +32,22 @@ To remove the extension, execute:
 pip uninstall topbar_hub_buttons
 ```
 
+## Troubleshoot
+
+If you are seeing the frontend extension, but it is not working, check
+that the server extension is enabled:
+
+```bash
+jupyter server extension list
+```
+
+If the server extension is installed and enabled, but you are not seeing
+the frontend extension, check the frontend extension is installed:
+
+```bash
+jupyter labextension list
+```
+
 ## Contributing
 
 ### Development install
@@ -48,6 +65,8 @@ The `jlpm` command is JupyterLab's pinned version of
 pip install -e "."
 # Link your development version of the extension with JupyterLab
 jupyter labextension develop . --overwrite
+# Server extension must be manually installed in develop mode
+jupyter server extension enable topbar_hub_buttons
 # Rebuild extension Typescript source after making changes
 jlpm build
 ```
@@ -72,6 +91,8 @@ jupyter lab build --minimize=False
 ### Development uninstall
 
 ```bash
+# Server extension must be manually disabled in develop mode
+jupyter server extension disable topbar_hub_buttons
 pip uninstall topbar_hub_buttons
 ```
 
