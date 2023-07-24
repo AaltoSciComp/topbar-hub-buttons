@@ -25,11 +25,11 @@ function activateExtension(
   }
   console.log('JupyterLab extension topbar-hub-buttons is activated!');
 
-  const hubUser = paths.urls.hubUser || '';
-  const hubServerName = paths.urls.hubServerName || '';
+  //const hubUser = paths.urls.hubUser || '';
+  //const hubServerName = paths.urls.hubServerName || '';
 
   // empty by default, fetched below
-  let hubAPIToken = '';
+  /*let hubAPIToken = '';
   requestAPI<any>('get-token')
     .then(data => {
       // checking with `in` should be fine here since these are simple objects
@@ -43,12 +43,12 @@ function activateExtension(
       console.error(
         `The topbar_hub_buttons server extension appears to be missing.\n${reason}`
       );
-    });
+    });*/
 
   /*
    * Send stop request to JupyterHub REST API
    */
-  async function requestStop(): Promise<void> {
+  /*async function requestStop(): Promise<void> {
     console.log('Sending stop request');
     const url =
       hubPrefix + 'api/users/' + hubUser + '/servers/' + hubServerName;
@@ -78,6 +78,14 @@ function activateExtension(
         console.log('Stop request: fetch error');
         console.log(error);
       });
+  }*/
+
+  async function test(): Promise<void> {
+    requestAPI<any>('shutdown')
+    .then(data => console.log(data))
+    .catch(reason => {
+      console.error(reason);
+    });
   }
 
   // Register newly defined commands
@@ -85,7 +93,7 @@ function activateExtension(
   commands.addCommand(CommandIDs.stopServer, {
     label: 'Stop Server',
     caption: 'Request that the Hub stop this server',
-    execute: requestStop
+    execute: test
   });
 
   settingRegistry
