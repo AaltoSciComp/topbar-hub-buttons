@@ -1,15 +1,12 @@
 # topbar_hub_buttons
 
-## Note
-
-Below is the text copied directly from the extension template. I can change it later if necessary.
-For now, the only thing to know is that this extension adds "Hub Control Panel" and "Logout" buttons to the JupyterLab top bar.
-The main logic to do so is in `schema/plugin.json`, and `src/index.ts` has a little bit of code 
-that uses the former (and logs a message to the console).
-
-
-[![Github Actions Status](/workflows/Build/badge.svg)](/actions/workflows/build.yml)
+[![Github Actions Status](https://github.com/AaltoSciComp/topbar-hub-buttons/workflows/Build/badge.svg)](https://github.com/AaltoSciComp/topbar-hub-buttons/actions/workflows/build.yml)
 A JupyterLab extension that adds JupyterHub buttons on the topbar
+
+## Change logs
+
+- v0.2.0 (Alireza) Removed the schema to directly execute the JupyterFrontend commands defined by Jupyterhub extension. Also some minor style issues have been fixed.
+- v0.1.0 (Tunç): Below is the text copied directly from the extension template. I can change it later if necessary. For now, the only thing to know is that this extension adds "Hub Control Panel" and "Logout" buttons to the JupyterLab top bar. The main logic to do so is in `schema/plugin.json`, and `src/index.ts` has a little bit of code that uses the former (and logs a message to the console).
 
 ## Requirements
 
@@ -78,6 +75,26 @@ pip uninstall topbar_hub_buttons
 In development mode, you will also need to remove the symlink created by `jupyter labextension develop`
 command. To find its location, you can run `jupyter labextension list` to figure out where the `labextensions`
 folder is located. Then you can remove the symlink named `topbar-hub-buttons` within that folder.
+
+### Testing the extension
+
+#### Frontend tests
+
+This extension is using [Jest](https://jestjs.io/) for JavaScript code testing.
+
+To execute them, execute:
+
+```sh
+jlpm
+jlpm test
+```
+
+#### Integration tests
+
+This extension uses [Playwright](https://playwright.dev/docs/intro) for the integration tests (aka user level tests).
+More precisely, the JupyterLab helper [Galata](https://github.com/jupyterlab/jupyterlab/tree/master/galata) is used to handle testing the extension in JupyterLab.
+
+More information are provided within the [ui-tests](./ui-tests/README.md) README.
 
 ### Packaging the extension
 

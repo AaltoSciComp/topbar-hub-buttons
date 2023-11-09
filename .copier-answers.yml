@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: v4.2.2
+_src_path: https://github.com/jupyterlab/extension-template
+author_email: alireza.tajmirriahi@aalto.fi
+author_name: AlirezaT99
+data_format: string
+file_extension: ''
+has_binder: false
+has_settings: false
+kind: frontend
+labextension_name: topbar-hub-buttons
+mimetype: ''
+mimetype_name: ''
+project_short_description: A JupyterLab extension to sync the prev code with the new
+    Jupyterlab version.
+python_name: topbar_hub_buttons
+repository: https://github.com/AaltoSciComp/topbar-hub-buttons.git
+test: true
+viewer_name: ''
+
